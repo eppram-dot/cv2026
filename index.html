@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV - Eka Putra Pramono</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a; /* Midnight Blue */
+            --accent: #fbbf24;  /* Amber Gold */
+            --gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-card {
+            width: 950px;
+            background: var(--white);
+            display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- SIDEBAR (DARK THEME) --- */
+        .sidebar {
+            width: 38%;
+            background: var(--gradient);
+            color: var(--text-main);
+            padding: 40px;
+        }
+
+        .photo-wrapper {
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24% 76% 70% 30% / 30% 30% 70% 70%; /* Organic Shape */
+            border: 4px solid var(--accent);
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .contact-item i { color: var(--accent); font-size: 1.1rem; }
+
+        .tag {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            margin: 3px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* --- MAIN CONTENT (LIGHT THEME) --- */
+        .main-content {
+            width: 62%;
+            padding: 50px 60px;
+        }
+
+        .hero-title h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .hero-title .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .bio-text {
+            margin: 25px 0;
+            color: #475569;
+            line-height: 1.7;
+            text-align: justify;
+            font-size: 0.95rem;
+        }
+
+        .content-section h3 {
+            font-size: 1.3rem;
+            margin: 30px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+        }
+
+        .content-section h3::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .achievement-card {
+            padding: 15px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .icon-badge {
+            min-width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .experience-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        .insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .insta-btn:hover { background: #eab308; }
+
+        @media print {
+            body { padding: 0; }
+            .cv-card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-card">
+        <aside class="sidebar">
+            <div class="photo-wrapper">
+                <img src="MNK.JPG" alt="Eka Putra Pramono">
+            </div>
+
+            <div class="sidebar-section">
+                <h2><i class="fas fa-paper-plane"></i> Kontak</h2>
+                <div class="contact-box">
+                    <div class="contact-item"><i class="fas fa-envelope"></i> eppramono13@gmail.com</div>
+                    <div class="contact-item"><i class="fas fa-phone"></i> +62 82285108668</div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Lampung Tengah</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2><i class="fas fa-user"></i> Biodata</h2>
+                <div class="contact-item">Lahir: 18 Agustus 2008</div>
+                <div class="contact-item">Agama: Islam</div>
+                <div class="contact-item">Status: Pelajar</div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2><i class="fas fa-bolt"></i> Bidang Ahli</h2>
+                <span class="tag">Kepemimpinan</span>
+                <span class="tag">Voli</span>
+                <span class="tag">Paskibra</span>
+                <span class="tag">Pramuka</span>
+                <span class="tag">Silat</span>
+                <span class="tag">Dance Modern</span>
+            </div>
+
+            <a href="https://www.instagram.com/eppramm_" class="insta-btn" target="_blank">
+                <i class="fab fa-instagram"></i> @eppramm_
+            </a>
+        </aside>
+
+        <main class="main-content">
+            <div class="hero-title">
+                <h1>EKA PUTRA <br>PRAMONO</h1>
+                <span class="subtitle">Ketua OSIS & Paskibra</span>
+            </div>
+
+            <p class="bio-text">
+                Seorang remaja asal Lampung yang lahir di Bina Karya Baru pada 18 Agustus 2008. Dikenal sebagai individu yang aktif dan disiplin, Eka telah mengumpulkan berbagai pengalaman luar biasa melalui olahraga dan organisasi sejak usia dini. Dedikasinya dalam kepemimpinan terbukti saat menjabat sebagai Ketua OSIS dan terpilih dua kali sebagai Paskibra PT Gunung Madu.
+            </p>
+
+            <div class="content-section">
+                <h3><i class="fas fa-award"></i> Pencapaian Unggulan</h3>
+                <div class="achievement-grid">
+                    <div class="achievement-card">
+                        <div class="icon-badge">01</div>
+                        <div><strong>Paskibra PT Gunung Madu</strong> - Posisi Pembentang (2024 & 2025)</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="icon-badge">02</div>
+                        <div><strong>Juara 1 Umum Pramuka</strong> - SMK Baskara (2022)</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="icon-badge">03</div>
+                        <div><strong>Juara 3 Volley Ball</strong> - Kabupaten Lampung Tengah (2022)</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="icon-badge">04</div>
+                        <div><strong>Juara 2 O2SN (Senam Lantai)</strong> - Kabupaten Lampung Tengah (2018)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><i class="fas fa-briefcase"></i> Riwayat Organisasi</h3>
+                <div class="experience-item">
+                    <strong>Ketua OSIS (SMA)</strong>
+                    <p style="font-size: 0.85rem; color: #64748b;">Bertanggung jawab memimpin seluruh agenda siswa dan koordinasi organisasi sekolah.</p>
+                </div>
+                <div class="experience-item">
+                    <strong>Anggota OSIS (SMP)</strong>
+                    <p style="font-size: 0.85rem; color: #64748b;">Aktif dalam kepengurusan OSIS sejak jenjang Sekolah Menengah Pertama.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
